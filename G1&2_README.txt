@@ -1,6 +1,5 @@
 							Homework G1&G2
 Student: Maciej Bonowicz
-IndexNr: 296857
 DisplayRange: 1560-1579
 
 1. General info
@@ -48,7 +47,7 @@ new mechanics I  have added. I will try to explain every additional part accordi
 	I have created a new factory Engine\Items\ItemFactories\EpicItemFactory.cs which generates only the *epic* items, which are the ones listed above.
 
 4. Skills
-	***I wanted to add each character class a unforgetable basic skill, that doesn't require any weapon and its damage improves only with level. They are both localized in:
+	***I wanted to add each character class a unforgetable basic skill, that doesn't require any weapon and its damage improves only with level. They are both located in:
 		- Engine\Skills\BasicSkills\Hadouken.cs  // It is a basic spell for Mage.
 		- Engine\Skills\BasicSkills\Punch.cs     // It is a basic spell for Warrior.
 		In order to achieve that I had to modify several deeper files:
@@ -57,7 +56,7 @@ new mechanics I  have added. I will try to explain every additional part accordi
 		- Engine\GameSession.cs - just adding them along with other starting skills
 
 	**I have added Weapon skills created by me to Engine\Skills\SkillFactories\BasicWeaponFactory.cs in order to be able to learn them as basic skills.
-	*I have expanded every basic weapon move(located in Engine\Skills\BasicWeaponMoves) with it's decorator. I did that to 
+	*I have expanded every basic weapon move(located in Engine\Skills\BasicWeaponMoves) with it's decorator. 
 
 	I have created a new directory Engine\Skills\NewWeaponMoves where I put all my new classes:
 	- CloneAxe.cs 

@@ -1,6 +1,5 @@
 							Homework G3&G4
 Student: Maciej Bonowicz
-IndexNr: 296857
 DisplayRange: 1560-1579
 
 
