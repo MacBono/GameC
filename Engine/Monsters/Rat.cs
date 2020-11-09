@@ -24,15 +24,20 @@ namespace Game.Engine.Monsters
         }
         public override List<StatPackage> BattleMove()
         {
-            if(Stamina>0)
-            {
-                Stamina -= 10;
-                // a simple bite move dealing 5 + (rat strength statistic) damage
-                return new List<StatPackage>() { new StatPackage("stab", 5 + Strength, "Rat uses Bite! ("+ (5 + Strength) +" stab damage)") };
-            }
+            if (stun == 1)
+                return new List<StatPackage>() { new StatPackage("stab", 0, "Enemy stunned. Can't attack.") };
             else
             {
-                return new List<StatPackage>() { new StatPackage("none", 0, "Rat has no energy to attack anymore!") };
+                if (Stamina > 0)
+                {
+                    Stamina -= 10;
+                    // a simple bite move dealing 5 + (rat strength statistic) damage
+                    return new List<StatPackage>() { new StatPackage("stab", 5 + Strength, "Rat uses Bite! (" + (5 + Strength) + " stab damage)") };
+                }
+                else
+                {
+                    return new List<StatPackage>() { new StatPackage("none", 0, "Rat has no energy to attack anymore!") };
+                }
             }
         }
     }

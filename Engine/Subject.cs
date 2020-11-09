@@ -14,57 +14,83 @@ namespace Game.Engine
         protected int health, strength, armor, precision, magicPower, stamina;
         public virtual int Health
         {
-            get { return health; }
+            get
+            {
+                if (health < 0) {
+                    health = 0;
+                    return health;
+                }
+                else
+                    return health;
+            }
             set
             {
-                if (value < 0) health = 0;
-                else health = value;
-                // if (health == 0)  //przegrana
+                health = value;
             }
         }
         public virtual int Strength
         {
-            get { return strength; }
+            get
+            {
+                if (strength < 0) return 0;
+                else
+                    return strength;
+            }
             set
             {
-                if (value < 0) strength = 0;
-                else strength = value;
+                strength = value;
             }
         }
         public virtual int Armor
         {
-            get { return armor; }
+            get
+            {
+                if (armor< 0) return 0;
+                else
+                    return armor;
+            }
             set
             {
-                if (value < 0) armor = 0;
-                else armor = value;
+                armor = value;
             }
         }
         public virtual int Precision
         {
-            get { return precision; }
+            get
+            {
+                if (precision< 0) return 0;
+                else
+                    return precision;
+            }
             set
             {
-                if (value < 0) precision = 0;
-                else precision = value;
+                precision = value;
             }
         }
         public virtual int MagicPower
         {
-            get { return magicPower; }
+            get
+            {
+                if (magicPower< 0) return 0;
+                else
+                    return magicPower;
+            }
             set
             {
-                if (value < 0) magicPower = 0;
-                else magicPower = value;
+                magicPower = value;
             }
         }
         public virtual int Stamina
         {
-            get { return stamina; }
+            get
+            {
+                if (stamina < 0) return 0;
+                else
+                    return stamina;
+            }
             set
             {
-                if (value < 0) stamina = 0;
-                else stamina = value;
+                stamina = value;
             }
         }
     }

@@ -24,19 +24,24 @@ namespace Game.Engine.Monsters
         }
         public override List<StatPackage> BattleMove()
         {
-            if (Stamina > 0)
+            if (stun == 1)
+                return new List<StatPackage>() { new StatPackage("stab", 0, "Enemy stunned. Can't attack.") };
+            else
             {
-                Stamina -= 10;
-                return new List<StatPackage>()
+                if (Stamina > 0)
+                {
+                    Stamina -= 10;
+                    return new List<StatPackage>()
                 { 
                     // the same bite move as in Rat, but also with 15 poison damage
                     new StatPackage("stab", 5 + Strength, "Rat uses Bite! ("+ (5 + Strength) +" stab damage)"),
                     new StatPackage("poison", 15, "Venom burns in your veins (15 poison damage)")
                 };
-            }
-            else
-            {
-                return new List<StatPackage>() { new StatPackage("none", 0, "Rat has no energy to attack anymore!") };
+                }
+                else
+                {
+                    return new List<StatPackage>() { new StatPackage("none", 0, "Rat has no energy to attack anymore!") };
+                }
             }
         }
     }

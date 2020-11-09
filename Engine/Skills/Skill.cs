@@ -11,7 +11,7 @@ namespace Game.Engine.Skills
         public string PublicName { get; protected set; } // a name to be displayed in the game
         public int StaminaCost { get; protected set; } // how much does this spell cost
         public int MinimumLevel { get; protected set; } // what level do you need to learn it
-        public string RequiredItem { get; protected set; } // possible items to require: "axe", "sword", "spear", "staff"
+        public string RequiredItem { get; protected set; } // possible items to require: "axe", "sword", "spear", "staff", "none"
 
         public Skill decoratedSkill = null; // only decorator will use this (but it has to be here)
         protected Skill(string name, int stamina, int minLevel) // for derived classes

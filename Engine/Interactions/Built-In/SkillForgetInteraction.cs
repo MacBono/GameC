@@ -24,11 +24,12 @@ namespace Game.Engine.Interactions
             List<string> choices = new List<string>();
             foreach (Skill sk in tmp)
             {
-                choices.Add(sk.ToString());
+                    choices.Add(sk.ToString());
             }
             choices.Add("Thank you, I have changed my mind");
             int a = GetListBoxChoice(choices);
-            if (a < choices.Count - 1) parentSession.currentPlayer.ListOfSkills.RemoveAt(a);
+            if (a == 0) parentSession.SendText("\nCan't forget this skill."); // it disables to forget the basic skills(Punch or Hadouken), which are currently learned in the first place
+            else if (a < choices.Count-1) parentSession.currentPlayer.ListOfSkills.RemoveAt(a);
         }
     }
 }

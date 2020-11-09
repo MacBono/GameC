@@ -13,17 +13,26 @@ namespace Game.Engine.CharacterClasses
         public List<Skill> ListOfSkills { get; set; }
         protected GameSession parentSession;
         protected int xp, gold;
+        public List<string> ListOfQuests { get; set; }
+        public List<string> ListOfQuestsExecutions { get; set; }
 
         // public properties
         public override int Health 
         {
             get 
-            { return health + HealthBuff; }
+            {
+                if (health + HealthBuff < 0)
+                {
+                    health = 0;
+                    return health;
+                }
+                else
+                    return health + HealthBuff;
+            }
             set 
             {
-                if (value < 0) health = 0;
-                else health = value;
-                if (health == 0)
+                health = value;
+                if (health <= 0)
                 {
                     parentSession.SendText("");
                     parentSession.SendText("***********************************************************************************************");
@@ -36,50 +45,65 @@ namespace Game.Engine.CharacterClasses
         public override int Strength
         {
             get
-            { return strength + StrengthBuff; }
+            {
+                if (strength + StrengthBuff < 0) return 0;
+                else
+                    return strength + StrengthBuff; }
             set
             {
-                if (value < 0) strength = 0;
-                else strength = value;
+                strength = value;
             }
         }
         public override int Armor
         {
             get
-            { return armor + ArmorBuff; }
+            {
+                if (armor + ArmorBuff < 0) return 0;
+                else
+                    return armor + ArmorBuff;
+            }
             set
             {
-                if (value < 0) armor = 0;
-                else armor = value;
+                armor = value;
             }
         }
         public override int Precision
         {
             get
-            { return precision + PrecisionBuff; }
+            {
+                if (precision + PrecisionBuff < 0) return 0;
+                else
+                    return precision + PrecisionBuff;
+            }
             set
             {
-                if (value < 0) precision = 0;
-                else precision = value;
+                precision = value;
             }
         }
         public override int MagicPower
         {
             get
-            { return magicPower + MagicPowerBuff; }
+            {
+                if (magicPower + MagicPowerBuff < 0) return 0;
+                else
+                    return magicPower + MagicPowerBuff;
+            }
             set
             {
-                if (value < 0) magicPower = 0;
-                else magicPower = value;
+                magicPower = value;
             }
         }
         public override int Stamina
         {
-            get { return stamina + StaminaBuff; }
+            get
+            {
+                if (stamina + StaminaBuff < 0) return 0;
+                else
+                    return stamina + StaminaBuff;
+            }
             set
             {
-                if (value < 0) stamina = 0;
-                else stamina = value;
+                stamina = value;
             }
         }
         public int XP
@@ -123,6 +147,8 @@ namespace Game.Engine.CharacterClasses
             ListOfSkills = new List<Skill>();
             Name = "player";
             Level = 1;
+            ListOfQuests = new List<string>();
+            ListOfQuestsExecutions = new List<string>();
         }
         private int LevelBasedOnXP()
         {

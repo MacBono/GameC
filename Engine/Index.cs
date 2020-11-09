@@ -7,6 +7,7 @@ using Game.Engine.Items.ItemFactories;
 using Game.Engine.Items.BasicArmor;
 using Game.Engine.Interactions;
 using Game.Engine.Interactions.InteractionFactories;
+using Game.Engine.Items.EpicItems;
 
 namespace Game.Engine
 {
@@ -20,7 +21,10 @@ namespace Game.Engine
 
         private static List<SkillFactory> weaponSkillFactories = new List<SkillFactory>()
         {
-            new BasicWeaponMoveFactory()
+            new BasicWeaponMoveFactory(),
+            new SpearSpellFactory(),
+            new SwordSpellFactory(),
+            new AxeSpellFactory()
         };
 
         private static List<Item> items = new List<Item>()
@@ -32,23 +36,32 @@ namespace Game.Engine
             new SteelArmor(),
             new AntiMagicArmor(),
             new BerserkerArmor(),
-            new GrowingStoneArmor()
+            new GrowingStoneArmor(),
+            new AntiPoisonRobe(),
+            new BurnProtectionAmulet(),
+            new VampireTooth(),
+            new FridaySword()
         };
 
         private static List<ItemFactory> itemFactories = new List<ItemFactory>()
         {
-            new BasicArmorFactory()
+            new BasicArmorFactory(),
+            new EpicItemFactory()
         };
 
         private static List<MonsterFactory> monsterFactories = new List<MonsterFactory>()
         {
-            new Monsters.MonsterFactories.RatFactory()
+            new Monsters.MonsterFactories.RatFactory(),
+            new Monsters.MonsterFactories.BlobFactory(),
+            new Monsters.MonsterFactories.ElementalFactory()
         };
 
         private static List<InteractionFactory> interactionFactories = new List<InteractionFactory>()
         {
             new SkillForgetFactory(),
-            new GymirHymirFactory()
+            new GymirHymirFactory(),
+            new ItemUpgradeFactory(),
+            new BobMagicBobFactory()
         };
 
     }

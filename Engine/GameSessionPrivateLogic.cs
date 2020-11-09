@@ -95,6 +95,7 @@ namespace Game.Engine
             items = newItems;
             RefreshStats();
         }
+        
         public List<StatPackage> ModifyOffensive(List<StatPackage> packs)
         {
             // apply offensive buffs from all active items to a StatPackage

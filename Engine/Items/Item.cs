@@ -49,6 +49,33 @@ namespace Game.Engine.Items
             // by default, do not include any specific defensive bonuses for player receiving an attack
             return pack;
         }
+        public virtual void ModifyMyStats(int value)
+        {
+            HpMod = value * HpMod;
+            StrMod = value * StrMod;
+            ArMod = value * ArMod;
+            PrMod = value * PrMod;
+            MgcMod = value * MgcMod;
+            StaMod = value * StaMod;
+        }
+        public virtual string PrintStats()
+        {
+            string txt = PublicName + ": ";
+            if (HpMod > 0) txt += "Health(+" + HpMod + ") ";
+            if (HpMod < 0) txt += "Health(" + HpMod + ") ";
+            if (StrMod > 0) txt += "Strength(+" + StrMod + ") ";
+            if (StrMod < 0) txt += "Strength(" + StrMod + ") ";
+            if (ArMod > 0) txt += "Armor(+" + ArMod + ") ";
+            if (ArMod < 0) txt += "Armor(" + ArMod + ") ";
+            if (PrMod > 0) txt += "Precision(+" + PrMod + ") ";
+            if (PrMod < 0) txt += "Precision(" + PrMod + ") ";
+            if (MgcMod > 0) txt += "Power(+" +MgcMod + ") ";
+            if (MgcMod < 0) txt += "Power(" + MgcMod + ") ";
+            if (StaMod > 0) txt += "Health(+" + StaMod + ") ";
+            if (StaMod < 0) txt += "Health(" + StaMod + ") ";
+            if (PublicTip != null) txt += "Bonus: " + PublicTip;
+            return txt;
+        }
 
     }
 }

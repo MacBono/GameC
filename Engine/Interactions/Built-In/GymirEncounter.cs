@@ -83,7 +83,7 @@ namespace Game.Engine.Interactions
             {
                 parentSession.SendText("Wait, what are you doing? COME BACK HERE!");
                 parentSession.AddThisItem(new BasicAxe()); // in the future this can be replaced with a more expensive axe...
-                myBrother.Strategy = new HymirHostileStrategy(); // Hymir will hear about this and he will hate you now
+            myBrother.Strategy = new HymirHostileStrategy(); // Hymir will hear about this and he will hate you now
                 visited = -1; // Gymir will no longer let you work here
             }
         }

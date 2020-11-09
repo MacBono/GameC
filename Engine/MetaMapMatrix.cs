@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Game.Engine.Interactions;
+using Game.Engine.Interactions.InteractionFactories;
 using Game.Engine.Skills;
 
 namespace Game.Engine
@@ -19,7 +20,7 @@ namespace Game.Engine
         private int currentNumber;
         // interactions
         private int shops = 20; // number of shops in the game world
-        private int interactions = 25; // number of all interactions (including shops) in the game world (can be slightly bigger due to quest constraints)
+        private int interactions = 30; // number of all interactions (including shops) in the game world (can be slightly bigger due to quest constraints)
         private List<Interaction> interactionList;
         // maps
         private MapMatrix[] matrix;

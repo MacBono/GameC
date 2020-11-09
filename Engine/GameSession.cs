@@ -1,11 +1,13 @@
 ﻿using Game.Display;
 using Game.Engine.CharacterClasses;
 using Game.Engine.Items;
+using Game.Engine.Items.EpicItems;
 using Game.Engine.Skills;
 using System.Collections.Generic;
 using System;
 using Game.Engine.Skills.BasicWeaponMoves;
 using Game.Engine.Skills.BasicSkills;
+using Game.Engine.Skills.NewWeaponMoves;
 using System.Windows.Documents;
 using System.Windows.Controls;
 
@@ -79,26 +81,45 @@ namespace Game.Engine
                 if (playerChoice.Contains("Axe"))
                 {
                     ProduceItem("item0003");
+                    ProduceItem("item1560");
+                    ProduceItem("item1561");
+                    currentPlayer.Learn(new Punch());
                     currentPlayer.Learn(new AxeCut());
                 }
                 else if (playerChoice.Contains("Sword"))
                 {
                     ProduceItem("item0004");
+                    ProduceItem("item1562");
+                    ProduceItem("item1560");
+                    ProduceItem("item1561");
+                    currentPlayer.Learn(new Punch());
                     currentPlayer.Learn(new SwordSlash());
                 }
                 else if (playerChoice.Contains("Spear"))
                 {
                     ProduceItem("item0002");
+                    ProduceItem("item1563");
+                    ProduceItem("item1560");
+                    ProduceItem("item1561");
+                    ProduceItem("item1562");
+                    currentPlayer.Learn(new Punch());
                     currentPlayer.Learn(new SpearStab());
+                    currentPlayer.Learn(new LightSpear());
                 }
                 else if (playerChoice.Contains("Fire"))
                 {
                     ProduceItem("item0001");
+                    ProduceItem("item1560");
+                    ProduceItem("item1561");
+                    currentPlayer.Learn(new Hadouken());
                     currentPlayer.Learn(new FireArrow());
                 }
                 else if (playerChoice.Contains("Wind"))
                 {
                     ProduceItem("item0001");
+                    ProduceItem("item1560");
+                    ProduceItem("item1561");
+                    currentPlayer.Learn(new Hadouken());
                     currentPlayer.Learn(new WindGust());
                 }
             }      
@@ -112,7 +133,7 @@ namespace Game.Engine
                 for (int j = 0; j < mapMatrix.Height; j++)
                 {
                     // scan rows first
-                    if (mapMatrix.Matrix[j, i] >= 3000 && mapMatrix.Matrix[j, i] < 4000)
+                    if (mapMatrix.Matrix[j, i] >= 3000 && mapMatrix.Matrix[j, i] < 5000)
                     {
                         parentPage.AddInteraction(i, j, mapMatrix.Matrix[j, i]);
                     }

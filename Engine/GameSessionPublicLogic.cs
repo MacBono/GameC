@@ -108,6 +108,8 @@ namespace Game.Engine
                 case "Sword":
                     foreach (Item item in items) if (item.IsSword) return true;
                     break;
+                case "none":
+                    return true;
             }
             return false;
         }
@@ -153,7 +155,6 @@ namespace Game.Engine
                 }
             }
         }
-
 
         /***************************        SKILLS      ***************************/
         public void LearnThisSkill(Skill sk)
@@ -255,6 +256,46 @@ namespace Game.Engine
             currentPlayer.Armor -= pack.ArmorDmg - currentPlayer.ArmorBuff;
             currentPlayer.Precision -= pack.PrecisionDmg - currentPlayer.PrecisionBuff;
             currentPlayer.MagicPower -= pack.MagicPowerDmg - currentPlayer.MagicPowerBuff;
+            RefreshStats();
+        }
+        public void UpdateStatMultiply(int number, double value)
+        {
+            // the method itself allows for any change (negative stat values will default to zero), but external balance guidelines may apply
+            switch (number)
+            {
+                case 1:
+                    double tmp1 = currentPlayer.Health * value;
+                    currentPlayer.Health = (int)tmp1;
+                    break;
+                case 2:
+                    double tmp2 = currentPlayer.Strength * value;
+                    currentPlayer.Strength = (int)tmp2;
+                    break;
+                case 3:
+                    double tmp3 = currentPlayer.Armor * value;
+                    currentPlayer.Armor = (int)tmp3;
+                    break;
+                case 4:
+                    double tmp4 = currentPlayer.Precision * value;
+                    currentPlayer.Precision = (int)tmp4;
+                    break;
+                case 5:
+                    double tmp5 = currentPlayer.MagicPower * value;
+                    currentPlayer.MagicPower = (int)tmp5;
+                    break;
+                case 6:
+                    double tmp6 = currentPlayer.Stamina * value;
+                    currentPlayer.Stamina =(int)tmp6;
+                    break;
+                case 7:
+                    double tmp7 = currentPlayer.XP * value;
+                    currentPlayer.XP = (int)tmp7;
+                    break;
+                case 8:
+                    double tmp8 = currentPlayer.Gold * value;
+                    currentPlayer.Gold = (int)tmp8;
+                    break;
+            }
             RefreshStats();
         }
 
